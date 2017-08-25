@@ -104,8 +104,8 @@ nnoremap <Space>lp :tabnew ~/.config/dein/lazy.toml<CR>
 
 " その他ショートカット
 map <Leader> ,
-nnoremap <Space>cd :cd %:h<CR>
-tnoremap <silent> <ESC> <C-\><C-n>
+nnoremap cd :cd %:h<CR>
+tnoremap <> <ESC> <C-\><C-n>
 tnoremap <silent> <C-j> <C-\><C-n>
 
 nnoremap <C-w>, <C-w><
@@ -114,5 +114,6 @@ nnoremap <C-w>. <C-w>>
 nmap j gj
 nmap k gk
 
-
+nnoremap * *N
+nnoremap <Space>cc cgn
 

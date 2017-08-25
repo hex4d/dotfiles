@@ -131,7 +131,8 @@ repo = 'raimondi/delimitmate'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-nnoremap <Space>e :NERDTreeToggle<CR>
+nnoremap <Space>e :NERDTreeToggle %:h<CR>
+"nnoremap <Space>e :NERDTreeToggle<CR>
 '''
 
 [[plugins]]

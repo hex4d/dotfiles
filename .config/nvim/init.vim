@@ -12,6 +12,7 @@ augroup END
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 
+
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
@@ -43,7 +44,9 @@ endif
 " 設定
 "--------------------
 
-set sh=zsh
+if has('mac')
+  set sh=zsh
+endif
 
 set number 
 
@@ -85,8 +88,14 @@ set expandtab
 inoremap jj <ESC>
 inoremap <C-j> <ESC>
 
-let g:python_host_prog  = '/usr/local/bin/python3'
-let g:python3_host_prog = '/usr/local/bin/python3'
+if has('mac')
+  let g:python_host_prog  = '/usr/local/bin/python3'
+  let g:python3_host_prog = '/usr/local/bin/python3'
+else
+  let g:python_host_prog  = '/usr/bin/python'
+  let g:python3_host_prog = '/usr/bin/python3'
+endif
+
 
 filetype plugin indent on
 

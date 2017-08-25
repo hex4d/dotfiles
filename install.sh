@@ -8,5 +8,5 @@ do
   path=$(cd $(dirname $f) && pwd)
   path="${path}/${f}"
   echo $path
-  ln -s $path ../
+  ln -s $path ~/
 done

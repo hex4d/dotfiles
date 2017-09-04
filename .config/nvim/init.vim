@@ -2,7 +2,6 @@ if !&compatible
   set nocompatible
 endif
 
-" rese augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
@@ -124,5 +123,8 @@ nmap j gj
 nmap k gk
 
 nnoremap * *N
-nnoremap <Space>cc cgn
+nnoremap <Space>cc *Ncgn
 
+colorscheme solarized
+
+nnoremap <Space>y :%y+<CR>

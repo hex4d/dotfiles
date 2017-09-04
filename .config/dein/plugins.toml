@@ -1,23 +1,23 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_add = '''
-  nnoremap <Space>r :QuickRun<CR>
-  let g:quickrun_config = get(g:, 'quickrun_config', {})
-  let g:quickrun_config._ = {
-        \ 'runner'    : 'vimproc',
-        \ }
-  let g:quickrun_config.python = {
-        \ 'command' : 'python3',
-        \ 'cmdopt' : '-u',
-        \ }
+#[[plugins]]
+#repo = 'thinca/vim-quickrun'
+#hook_add = '''
+  #nnoremap <Space>r :QuickRun<CR>
+  #let g:quickrun_config = get(g:, 'quickrun_config', {})
+  #let g:quickrun_config._ = {
+        #\ 'runner'    : 'vimproc',
+        #\ }
+  #let g:quickrun_config.python = {
+        #\ 'command' : 'python3',
+        #\ 'cmdopt' : '-iu',
+        #\ }
 
-'''
-hook_post_update = '''
-  let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
-'''
+#'''
+#hook_post_update = '''
+  #let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
+#'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -45,7 +45,9 @@ hook_add = '''
   " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
   " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
   
+  if !has('mac')
     let g:solarized_termcolors=256
+  endif
   au MyAutoCmd VimEnter * nested colorscheme solarized
 '''
 
@@ -64,10 +66,12 @@ hook_add = '''
   nnoremap <silent> ,rl :TREPLSendLine<cr>
   vnoremap <silent> ,rl :TREPLSendSelection<cr>
   nnoremap <Space>vp :T cd %:h; clear;<CR>
-  nnoremap <Space>r :T cd %:h; clear; python3 %<CR>
+  nnoremap <Space>r :T cd %:h; clear; python3 -iu %<CR>
   nnoremap <Space>vw :T cd ~/Documents/Workspace/<CR>
   nnoremap <Space>vo :Ttoggle<CR>
   let g:neoterm_autoinsert = 1
+  let g:neoterm_open_in_all_tabs = 0
+
 '''
 
 [[plugins]]

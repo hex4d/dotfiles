@@ -1,31 +1,28 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-#[[plugins]]
-#repo = 'thinca/vim-quickrun'
-#hook_add = '''
-  #nnoremap <Space>r :QuickRun<CR>
-  #let g:quickrun_config = get(g:, 'quickrun_config', {})
-  #let g:quickrun_config._ = {
-        #\ 'runner'    : 'vimproc',
-        #\ }
-  #let g:quickrun_config.python = {
-        #\ 'command' : 'python3',
-        #\ 'cmdopt' : '-iu',
-        #\ }
-
-#'''
-#hook_post_update = '''
-  #let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
-#'''
-
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo ='itchyny/lightline.vim'
 hook_add = '''
   let g:lightline = {
-        \   'colorscheme': 'wombat'
-        \}
-  '''
+        \ 'colorscheme': 'wombat',
+        \ 'active': {
+        \ 'left': [['mode', 'paste'], 
+        \          ['gitbranch', 'readonly', 'filename', 'modified']]
+        \ },
+        \ 'component_function' : {
+        \   'gitbranch': 'fugitive#head',
+        \   'filename': 'MyFilename'
+        \ },
+        \ }
+  function! MyFilename()
+    return winwidth(0) > 140 ?
+          \ expand('%:p') !=# '' ? expand('%:p') : '[No Name]' :
+          \ winwidth(0) > 70 ? 
+          \ expand('%:t') !=# '' ? expand('%:h') . expand('%:t') : '[No Name]' :
+          \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  endfunction
+'''
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
@@ -93,9 +90,9 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'scrooloose/nerdcommenter'
+repo = 'tyru/caw.vim'
 hook_add = '''
-    map <C-c><C-c> <plug>NERDCommenterToggle
+  map <C-c><C-c> <Plug>(caw:hatpos:toggle)
 '''
 
 [[plugins]]
@@ -131,15 +128,8 @@ repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
 repo = 'michaeljsmith/vim-indent-object'
 
-[[plugins]]
-repo = 'raimondi/delimitmate'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-nnoremap <Space>e :NERDTreeToggle %:h<CR>
-"nnoremap <Space>e :NERDTreeToggle<CR>
-'''
+# [[plugins]]
+# repo = 'raimondi/delimitmate'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -149,3 +139,4 @@ repo = 'ivalkeen/nerdtree-execute'
 
 [[plugins]]
 repo = 'moznion/hateblo.vim'
+

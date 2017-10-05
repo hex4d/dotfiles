@@ -18,6 +18,7 @@ if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
+let &runtimepath = "~/Workspace/some/vimplugin" .",". &runtimepath
 " プラグイン読み込み＆キャッシュ作成
 let s:toml_dir = g:config_home . '/dein'
 let s:toml_file = s:toml_dir . '/plugins.toml'
@@ -26,13 +27,18 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file)
   call dein#load_toml(s:lazy_toml_file, {'lazy': 1})
+  call dein#add('~/Workspace/some/vimplugin/easydaily-vim')
+  call dein#add('~/Workspace/some/vimplugin/nerdtree-yank-mapping/', {'depends': 'nerdtree'})
   call dein#end()
   call dein#save_state()
 endif
+
+
 " 不足プラグインの自動インストール
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
+
 " }}}
 
 
@@ -105,10 +111,10 @@ nnoremap tj :tabprevious<CR>
 nnoremap tk :tabnext<CR>
 
 " コンフィグに関するショートカット
-nnoremap <Space>, :tabnew ~/.config/nvim/init.vim<CR>
-nnoremap <Space>s :source ~/.config/nvim/init.vim<CR>
-nnoremap <Space>p :tabnew ~/.config/dein/plugins.toml<CR>
-nnoremap <Space>lp :tabnew ~/.config/dein/lazy.toml<CR>
+nnoremap <Space>, :tabnew ~/Workspace/dotfiles/.config/nvim/init.vim<CR>
+nnoremap <Space>s :source ~/Workspace/dotfiles/.config/nvim/init.vim<CR>
+nnoremap <Space>p :tabnew ~/Workspace/dotfiles/.config/dein/plugins.toml<CR>
+nnoremap <Space>lp :tabnew ~/Workspace/dotfiles/.config/dein/lazy.toml<CR>
 
 " その他ショートカット
 map <Leader> ,
@@ -128,3 +134,4 @@ nnoremap <Space>cc *Ncgn
 colorscheme solarized
 
 nnoremap <Space>y :%y+<CR>
+

@@ -89,7 +89,6 @@ set virtualedit=all
 
 set expandtab 
 
-inoremap jj <ESC>
 inoremap <C-j> <ESC>
 
 if has('mac')

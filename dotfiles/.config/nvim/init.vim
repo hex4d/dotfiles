@@ -131,3 +131,9 @@ nnoremap <Space>y :%y+<CR>
 
 colorscheme solarized
 
+nnoremap <Space>gs :Gstatus<CR>
+nnoremap <Space>gd :Gdiff<CR>
+nnoremap <Space>gb :Gblame<CR>
+nnoremap <Space>ga :Gwrite<CR>
+nnoremap <Space>gc :Gcommit<CR>
+

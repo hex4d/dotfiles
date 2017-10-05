@@ -7,7 +7,6 @@ augroup MyAutoCmd
 augroup END
 
 " dein settings {{{
-" dein自体の自動インストール
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 
@@ -27,8 +26,8 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file)
   call dein#load_toml(s:lazy_toml_file, {'lazy': 1})
-  call dein#add('~/Workspace/some/vimplugin/easydaily-vim')
-  call dein#add('~/Workspace/some/vimplugin/nerdtree-yank-mapping/', {'depends': 'nerdtree'})
+  " call dein#add('~/Workspace/some/vimplugin/easydaily-vim')
+  " call dein#add('~/Workspace/some/vimplugin/nerdtree-yank-mapping/', {'depends': 'nerdtree'})
   call dein#end()
   call dein#save_state()
 endif
@@ -104,19 +103,17 @@ endif
 
 filetype plugin indent on
 
-" タブに関するショートカット
+" shortcut
 nnoremap tn :tabnew<CR>
 nnoremap td :tabclose<CR>
 nnoremap tj :tabprevious<CR>
 nnoremap tk :tabnext<CR>
 
-" コンフィグに関するショートカット
-nnoremap <Space>, :tabnew ~/Workspace/dotfiles/.config/nvim/init.vim<CR>
-nnoremap <Space>s :source ~/Workspace/dotfiles/.config/nvim/init.vim<CR>
-nnoremap <Space>p :tabnew ~/Workspace/dotfiles/.config/dein/plugins.toml<CR>
-nnoremap <Space>lp :tabnew ~/Workspace/dotfiles/.config/dein/lazy.toml<CR>
+nnoremap <Space>, :tabnew ~/Workspace/dotfiles/dotfiles/.config/nvim/init.vim<CR>
+nnoremap <Space>s :source ~/Workspace/dotfiles/dotfiles/.config/nvim/init.vim<CR>
+nnoremap <Space>p :tabnew ~/Workspace/dotfiles/dotfiles/.config/dein/plugins.toml<CR>
+nnoremap <Space>lp :tabnew ~/Workspace/dotfiles/dotfiles/.config/dein/lazy.toml<CR>
 
-" その他ショートカット
 map <Leader> ,
 nnoremap cd :cd %:h<CR>
 tnoremap <> <ESC> <C-\><C-n>
@@ -131,7 +128,7 @@ nmap k gk
 nnoremap * *N
 nnoremap <Space>cc *Ncgn
 
-colorscheme solarized
-
 nnoremap <Space>y :%y+<CR>
+
+colorscheme solarized
 

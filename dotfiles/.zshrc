@@ -7,8 +7,7 @@ compinit -u
 
 # Vim キーバインド
 bindkey -v
-
-PROMPT="[%D %*] %d %% "
+bindkey -M viins 'jj' vi-cmd-mode
 
 # zplug
 
@@ -29,9 +28,23 @@ fi
 
 zplug load --verbose
 
-bindkey -M viins 'jj' vi-cmd-mode
  
+PROMPT="%F{blue}[%D %*]%f %d %% "
+
+alias reload='exec $SHELL -l'
+
 function nvcd() {
   nvr -c 'cd '${PWD}
 }
 
+
+
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'

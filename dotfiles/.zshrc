@@ -12,13 +12,13 @@ PROMPT="[%D %*] %d %% "
 
 # zplug
 
+if [ ! -e $HOME/.zplug ]; then
+	git clone https://github.com/zplug/zplug $HOME/.zplug
+fi
 source ~/.zplug/init.zsh
 
 # syntax
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-zgen load zsh-users/zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -28,7 +28,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load --verbose
-
 
 bindkey -M viins 'jj' vi-cmd-mode
  

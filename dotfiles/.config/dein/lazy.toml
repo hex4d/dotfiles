@@ -28,11 +28,11 @@ depends = ['neosnippet-snippets']
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  nnoremap <Space>up :DeniteBufferDir file_rec<CR>
-  nnoremap <Space>uh :Denite file_mru<CR>
-  nnoremap <Space>ub :Denite buffer<CR>
-  nnoremap <Space>uwg :DeniteCursorWord grep<CR>
-  nnoremap <Space>ur :Denite -resume<CR>
+  nnoremap <Space>up :DeniteBufferDir file_rec -mode=normal<CR>
+  nnoremap <Space>uh :Denite file_mru -mode=normal<CR>
+  nnoremap <Space>ub :Denite buffer -mode=normal<CR>
+  nnoremap <Space>uwg :DeniteCursorWord grep -mode=normal<CR>
+  nnoremap <Space>ur :Denite -resume -mode=normal<CR>
 '''
 hook_post_source = '''
 "  call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')

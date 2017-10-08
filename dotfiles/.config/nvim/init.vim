@@ -10,7 +10,6 @@ augroup END
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 
-
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
@@ -26,7 +25,7 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file)
   call dein#load_toml(s:lazy_toml_file, {'lazy': 1})
-  " call dein#add('~/Workspace/some/vimplugin/easydaily-vim')
+  " call dein#add('~/Workspace/product/neoterm')
   " call dein#add('~/Workspace/some/vimplugin/nerdtree-yank-mapping/', {'depends': 'nerdtree'})
   call dein#end()
   call dein#save_state()

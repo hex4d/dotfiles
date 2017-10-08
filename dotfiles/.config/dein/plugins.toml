@@ -55,18 +55,20 @@ hook_add = '''
 
 
 [[plugins]] # terminal
-repo = 'kassio/neoterm'
+repo = 'hiradd/neoterm'
 if = "has('nvim')"
 hook_add = '''
   nnoremap <silent> ,rc :TREPLSendFile<cr>
   nnoremap <silent> ,rl :TREPLSendLine<cr>
   vnoremap <silent> ,rl :TREPLSendSelection<cr>
-  nnoremap <Space>vp :T cd %:h; clear;<CR>
+  nnoremap <Space>vp :Tnew cd %:h; clear;<CR>
   nnoremap <Space>r :T cd %:h; clear; python3 -iu %<CR>
   nnoremap <Space>vw :T cd ~/Documents/Workspace/<CR>
-  nnoremap <Space>vo :Ttoggle<CR>
+  nnoremap <Space>vv :Ttoggle<CR>
+  nnoremap <Space>vo :Topen<CR>
+  nnoremap <Space>vc :Tclose<CR>
   let g:neoterm_autoinsert = 1
-  let g:neoterm_open_in_all_tabs = 0
+  " let g:neoterm_open_in_all_tabs = 1
 
 '''
 

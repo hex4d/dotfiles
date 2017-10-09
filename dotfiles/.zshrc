@@ -8,6 +8,7 @@ compinit -u
 # vim key bind
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
+bindkey -a 'q' push-line
 
 # zplug
 if [ ! -e $HOME/.zplug ]; then
@@ -86,6 +87,8 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey -v "^K" history-beginning-search-backward-end
 bindkey -v "^J" history-beginning-search-forward-end
 
+
+
 # hook
 if [ $(uname) = "Darwin" ]; then
   _preexec() {
@@ -93,7 +96,7 @@ if [ $(uname) = "Darwin" ]; then
   }
   _precmd() {
     notif_status=$?
-    if [ $TTYIDLE -gt 10 ] && [ $notif_status -ne 130 ] && [ $notif_status -ne 146 ]; then
+    if [ $TTYIDLE -gt 1 ] && [ $notif_status -ne 130 ] && [ $notif_status -ne 146 ]; then
       notif_title=$([ $notif_status -eq 0 ] && echo "Command succeeded" || echo "Command failed")
       notif_color=$([ $notif_status -eq 0 ] && echo "good" || echo "danger")
       osascript -e 'display notification "'$notif_prev_command'" subtitle "'$TTYIDLE' seconds" with title "'$notif_title'" sound name ""'

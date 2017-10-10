@@ -18,6 +18,7 @@ source ~/.zplug/init.zsh
 
 # syntax
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "b4b4r07/enhancd", use:init.sh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

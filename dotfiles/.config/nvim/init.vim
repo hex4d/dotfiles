@@ -25,7 +25,7 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file)
   call dein#load_toml(s:lazy_toml_file, {'lazy': 1})
-  " call dein#add('~/Workspace/product/neoterm')
+  " call dein#add('~/Workspace/product/easydiary', {'hook_add': "let g:easydiary_directory='~/Workspace/'"})
   " call dein#add('~/Workspace/some/vimplugin/nerdtree-yank-mapping/', {'depends': 'nerdtree'})
   call dein#end()
   call dein#save_state()
@@ -136,3 +136,13 @@ nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>ga :Gwrite<CR>
 nnoremap <Space>gc :Gcommit<CR>
 
+
+function! CurrentStatus()
+    let result = system('git status')
+    echo result
+    if stridx(result, 'up-to-date') != -1
+        echo 'up-to-date'
+    elseif stridx(result, 'modified') != -1
+      echo 'modified'
+    endif
+endfunction

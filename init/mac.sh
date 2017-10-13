@@ -16,3 +16,5 @@ brew install neovim
 pip3 install neovm
 pip3 install neovim-remote
 
+# ctags
+brew install gtags

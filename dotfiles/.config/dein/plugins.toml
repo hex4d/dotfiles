@@ -143,3 +143,12 @@ repo = 'moznion/hateblo.vim'
 
 [[plugins]]
 repo = 'cohama/agit.vim'
+
+[[plugins]]
+repo = 'vim-scripts/gtags.vim'
+
+[[plugins]]
+repo = 'hiradd/easydiary'
+hook_add = '''
+  let g:easydiary_directory = '~/Workspace/note/'
+'''

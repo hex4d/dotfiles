@@ -8,9 +8,13 @@ hook_add = '''
         \ 'colorscheme': 'wombat',
         \ 'active': {
         \ 'left': [['mode', 'paste'], 
-        \          ['gitstatus', 'readonly', 'filename', 'modified']]
+        \          ['gitbranch', 'gitstatus', 'readonly', 'filename', 'modified']]
+        \ },
+        \ 'inactive': {
+        \ 'left': [['gitbranch', 'gitstatus', 'filename']]
         \ },
         \ 'component_function' : {
+        \   'gitbranch': 'fugitive#head',
         \   'gitstatus': 'GitStatus',
         \   'filename': 'MyFilename'
         \ },
@@ -24,7 +28,8 @@ hook_add = '''
   endfunction
 
   function! GitStatus()
-    let result = system('git status')
+    let result = system('git --git-dir=' . fugitive#extract_git_dir(expand('%:p')) . ' --work-tree=' . substitute(fugitive#extract_git_dir(expand('%:p')), '.git', '', 'g') .' status')
+    " let dir = a:0 ? a:1 : (exists('b:git_dir') && b:git_dir !=# '' ? b:git_dir : fugitive#extract_git_dir(expand('%:p')))
 
     let status = ''
     if stridx(result, 'up-to-date') != -1
@@ -42,7 +47,7 @@ hook_add = '''
     if stridx(result, 'Untracked') != -1
       :let status = status . '?'
     endif
-    return status . '[' . fugitive#head() . ']'
+    return status
   endfunction
 '''
 

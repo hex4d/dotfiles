@@ -136,13 +136,3 @@ nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>ga :Gwrite<CR>
 nnoremap <Space>gc :Gcommit<CR>
 
-
-function! CurrentStatus()
-    let result = system('git status')
-    echo result
-    if stridx(result, 'up-to-date') != -1
-        echo 'up-to-date'
-    elseif stridx(result, 'modified') != -1
-      echo 'modified'
-    endif
-endfunction

@@ -8,19 +8,41 @@ hook_add = '''
         \ 'colorscheme': 'wombat',
         \ 'active': {
         \ 'left': [['mode', 'paste'], 
-        \          ['gitbranch', 'readonly', 'filename', 'modified']]
+        \          ['gitstatus', 'readonly', 'filename', 'modified']]
         \ },
         \ 'component_function' : {
-        \   'gitbranch': 'fugitive#head',
+        \   'gitstatus': 'GitStatus',
         \   'filename': 'MyFilename'
         \ },
         \ }
   function! MyFilename()
-    return winwidth(0) > 140 ?
+    return winwidth(0) > 160 ?
           \ expand('%:p') !=# '' ? expand('%:p') : '[No Name]' :
-          \ winwidth(0) > 70 ? 
+          \ winwidth(0) > 120 ? 
           \ expand('%:t') !=# '' ? expand('%:h') . expand('%:t') : '[No Name]' :
           \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  endfunction
+
+  function! GitStatus()
+    let result = system('git status')
+
+    let status = ''
+    if stridx(result, 'up-to-date') != -1
+      :let status = status . ''
+    endif
+    if stridx(result, 'rebase in progress') != -1
+      :let status = status . '!conflict|'
+    endif
+    if stridx(result, 'Changes to be committed') != -1
+      :let status = status . '+'
+    endif
+    if stridx(result, 'Changes not staged for commit') != -1
+      :let status = status . '-'
+    endif
+    if stridx(result, 'Untracked') != -1
+      :let status = status . '?'
+    endif
+    return status . '[' . fugitive#head() . ']'
   endfunction
 '''
 

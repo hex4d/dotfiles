@@ -109,6 +109,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   }
 fi
 
+PATH=$PATH:/usr/local/bin
+
 add-zsh-hook precmd _precmd
 add-zsh-hook preexec _preexec
 

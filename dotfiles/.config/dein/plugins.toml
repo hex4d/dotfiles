@@ -175,6 +175,9 @@ repo = 'cohama/agit.vim'
 repo = 'vim-scripts/gtags.vim'
 
 [[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
 repo = 'hiradd/easydiary'
 hook_add = '''
   let g:easydiary_directory = '~/Workspace/note/'

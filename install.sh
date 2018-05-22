@@ -27,3 +27,5 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   cp -rs $dotfiles_dir $target_dir 
 fi
 
+git config --global user.name "sho"
+git config --global user.email "hira.alpherz@gmail.com"

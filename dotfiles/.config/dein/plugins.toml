@@ -189,3 +189,9 @@ hook_add = '''
   let g:indent_guides_enable_on_vim_startup = 1
 '''
 
+[[plugins]]
+repo = 'kannokanno/previm'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+

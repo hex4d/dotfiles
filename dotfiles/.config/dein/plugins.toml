@@ -191,6 +191,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'kannokanno/previm'
+hook_add = '''
+  let g:previm_open_cmd = 'open -a "Google Chrome"'
+'''
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'

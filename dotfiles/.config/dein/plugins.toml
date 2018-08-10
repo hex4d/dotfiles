@@ -14,7 +14,7 @@ hook_add = '''
         \ 'left': [['gitbranch', 'gitstatus', 'filename']]
         \ },
         \ 'component_function' : {
-        \   'gitbranch': 'fugitive#head',
+        \   'gitbranch': 'gina#component#repo#branch',
         \   'gitstatus': 'GitStatus',
         \   'filename': 'MyFilename'
         \ },
@@ -28,6 +28,15 @@ hook_add = '''
   endfunction
 
   function! GitStatus()
+    let staged = gina#component#status#staged()
+    let unstaged = gina#component#status#unstaged()
+    let conflicted = gina#component#status#conflicted()
+    return printf(
+          \ 's:%s u:%s c:%s',
+          \ staged,
+          \ unstaged,
+          \ conflicted,
+	        \)
     let result = system('git --git-dir=' . fugitive#extract_git_dir(expand('%:p')) . ' --work-tree=' . substitute(fugitive#extract_git_dir(expand('%:p')), '.git', '', 'g') .' status')
     " let dir = a:0 ? a:1 : (exists('b:git_dir') && b:git_dir !=# '' ? b:git_dir : fugitive#extract_git_dir(expand('%:p')))
 
@@ -196,5 +205,23 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
+repo = 'lambdalisue/gina.vim'
 
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+'''
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+build = 'install.sh'
+hook_add = '''
+  nnoremap <C-d><C-d> :TSDefPreview<CR> zz
+  nnoremap <C-d><C-o> :TSDoc<CR>
+  nnoremap <C-d><C-p> :TSTypeDef<CR>
+'''

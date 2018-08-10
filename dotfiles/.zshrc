@@ -12,11 +12,11 @@ bindkey -a 'q' push-line
 
 # zplug
 if [ ! -e $HOME/.zplug ]; then
-	git clone https://github.com/zplug/zplug $HOME/.zplug
+  git clone https://github.com/zplug/zplug $HOME/.zplug
 fi
 source ~/.zplug/init.zsh
 
-# syntax
+# # syntax
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "b4b4r07/enhancd", use:init.sh
 
@@ -29,15 +29,12 @@ fi
 
 zplug load --verbose
 
-# alias
+alias
 alias reload='exec $SHELL -l'
 
 function nvcd() {
   nvr -c 'cd '${PWD}
 }
-
-# prompt 
-PROMPT=""
 
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
@@ -52,27 +49,27 @@ RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 autoload -Uz terminfo
 
-terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
-left_down_prompt_preexec() {
-    print -rn -- $terminfo[el]
-}
-add-zsh-hook preexec left_down_prompt_preexec
+ terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
+ left_down_prompt_preexec() {
+     print -rn -- $terminfo[el]
+ }
+ add-zsh-hook preexec left_down_prompt_preexec
 
-function zle-keymap-select zle-line-init zle-line-finish
-{
-    case $KEYMAP in
-        main|viins)
-            PROMPT_2="$fg[cyan]-- INSERT --$reset_color"
-            ;;
-        vicmd)
-            PROMPT_2="$fg[white]-- NORMAL --$reset_color"
-            ;;
-        vivis|vivli)
-            PROMPT_2="$fg[yellow]-- VISUAL --$reset_color"
-            ;;
-    esac
+ function zle-keymap-select zle-line-init zle-line-finish
+ {
+     case $KEYMAP in
+         main|viins)
+             PROMPT_2="$fg[cyan]-- INSERT --$reset_color"
+             ;;
+         vicmd)
+             PROMPT_2="$fg[white]-- NORMAL --$reset_color"
+             ;;
+         vivis|vivli)
+             PROMPT_2="$fg[yellow]-- VISUAL --$reset_color"
+             ;;
+     esac
 
-    PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}%F{blue}%m%f %d %% "
+     PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}%F{blue}%m%f %d %% "
     zle reset-prompt
 }
 
@@ -110,7 +107,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 fi
 
 PATH=$PATH:/usr/local/bin
-PATH=$PATH:~/Library/Android/sdk/platform-tools
+export ANDROID_HOME=/Users/l2b_009/Library/Android/sdk
+export ANDROID_SDK_ROOT=/Users/l2b_009/Library/Android/sdk
+PATH=$PATH:$ANDROID_HOME/platform-tools
+PATH=$PATH:$ANDROID_HOME/bin
+export JAVA_HOME=`/usr/libexec/java_home`
+PATH=$PATH:$JAVA_HOME/bin
+PATH=$PATH:~/.nodebrew/current/bin
 
 add-zsh-hook precmd _precmd
 add-zsh-hook preexec _preexec
@@ -174,4 +177,4 @@ elif type compctl &>/dev/null; then
   }
   compctl -K _npm_completion npm
 fi
-###-end-npm-completion-###
+##-end-npm-completion-###

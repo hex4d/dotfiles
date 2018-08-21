@@ -114,6 +114,8 @@ PATH=$PATH:$ANDROID_HOME/bin
 export JAVA_HOME=`/usr/libexec/java_home`
 PATH=$PATH:$JAVA_HOME/bin
 PATH=$PATH:~/.nodebrew/current/bin
+PATH=$PATH:./node_modules/.bin
+
 
 add-zsh-hook precmd _precmd
 add-zsh-hook preexec _preexec
@@ -178,3 +180,6 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ##-end-npm-completion-###
+
+eval $(thefuck --alias)
+alias fk=fuck

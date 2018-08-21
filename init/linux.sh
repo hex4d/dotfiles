@@ -18,3 +18,6 @@ sudo apt-get -y install neovim
 
 pip3 install neovim
 pip3 install neovim-remote
+
+sudo pip3 install thefuck
+

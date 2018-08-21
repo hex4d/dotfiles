@@ -18,3 +18,5 @@ pip3 install neovim-remote
 
 # ctags
 brew install gtags
+
+brew install thefuck

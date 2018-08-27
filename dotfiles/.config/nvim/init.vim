@@ -136,3 +136,5 @@ nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>ga :Gwrite<CR>
 nnoremap <Space>gc :Gcommit<CR>
 
+nnoremap <C-d><C-t> <ESC>I<C-R>=strftime("%H:%M")<CR>~
+inoremap <C-d><C-t> <C-R>=strftime("%H:%M")<CR>~

@@ -61,6 +61,36 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'prabirshrestha/async.vim'
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
+'''
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+let g:asyncomplete_auto_popup = 1
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+'''
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+merged = 0
+
+[[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 
@@ -89,7 +119,6 @@ hook_add = '''
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 '''
 
-
 [[plugins]] # terminal
 repo = 'hiradd/neoterm'
 if = "has('nvim')"
@@ -105,7 +134,6 @@ hook_add = '''
   nnoremap <Space>vc :Tclose<CR>
   let g:neoterm_autoinsert = 1
   " let g:neoterm_open_in_all_tabs = 1
-
 '''
 
 [[plugins]]
@@ -117,6 +145,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
+if = "!has('nvim')"
 build = 'make'
 
 [[plugins]]

@@ -1,29 +1,27 @@
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# hook_source = '''
+#   let g:deoplete#enable_at_startup = 1
+#   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+#         \ neosnippet#expandable_or_jumpable() ?
+#         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+#   inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+# '''
+# on_i = 1
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-'''
-on_i = 1
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
-'''
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+# [[plugins]]
+# repo = 'Shougo/neosnippet'
+# hook_source = '''
+#   imap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   smap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   xmap <C-k> <Plug>(neosnippet_expand_target)
+#   if has('conceal')
+#     set conceallevel=2 concealcursor=niv
+#   endif
+# '''
+# on_i  = 1
+# on_ft = ['snippet']
+# depends = ['neosnippet-snippets']
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -43,8 +41,8 @@ hook_post_source = '''
   call denite#custom#map('insert', '<C-j>', '<denite:enter_mode:normal>', 'noremap')
 '''
 
-[[plugins]]
-repo = 'honza/vim-snippets'
+# [[plugins]]
+# repo = 'honza/vim-snippets'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -58,10 +56,14 @@ on_source = ['denite.nvim']
 repo = 'Vimjas/vim-python-pep8-indent'
 on_ft = 'python'
 
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
+# [[plugins]]
+# repo = 'davidhalter/jedi-vim'
+# on_ft = 'python'
+# hook_add = '''
+# '''
 
+# [[plugins]]
+# repo = 'zchee/deoplete-jedi'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -71,4 +73,5 @@ nnoremap <Space>e :NERDTreeToggle %:h<CR>
 "nnoremap <Space>e :NERDTreeToggle<CR>
 '''
 on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
+
 

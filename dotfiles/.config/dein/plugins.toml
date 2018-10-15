@@ -114,7 +114,6 @@ hook_add = '''
   let g:neomake_python_python_exe = 'python3'
   let g:neomake_python_enabled_makers = ['flake8', 'mypy']
   let g:neomake_python_mypy_args = ['--check-untyped-defs', '--ignore-missing-imports']
-  let s:python_version = 3
 '''
 
 [[plugins]]

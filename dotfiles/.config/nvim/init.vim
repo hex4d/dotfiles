@@ -86,7 +86,8 @@ set cursorline
 set display=lastline
 set virtualedit=all
 
-set expandtab 
+set expandtab
+set autoread
 
 inoremap <C-j> <ESC>
 

@@ -86,6 +86,9 @@ set cursorline
 set display=lastline
 set virtualedit=all
 
+set cmdheight=2
+set noshowmode
+
 set expandtab 
 
 inoremap <C-j> <ESC>

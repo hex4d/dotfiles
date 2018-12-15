@@ -25,9 +25,6 @@ hook_source = '''
 on_ft = 'python'
 
 [[plugins]]
-repo = 'rudism/deoplete-tsuquyomi'
-
-[[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -83,6 +80,9 @@ nnoremap <Space>e :NERDTreeToggle %:h<CR>
 '''
 on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
 
-[[plugins]]
-repo  = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
+# [[plugins]]
+# repo  = 'Quramy/tsuquyomi'
+# on_ft = ['typescript']
+#
+# [[plugins]]
+# repo = 'rudism/deoplete-tsuquyomi'

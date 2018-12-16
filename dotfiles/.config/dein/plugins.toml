@@ -8,9 +8,8 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  nnoremap <Space>up :DeniteBufferDir file_rec -mode=normal<CR>
+  nnoremap <Space>uf :Denite file_rec -mode=normal<CR>
   nnoremap <Space>uh :Denite file_old -mode=normal<CR>
-  nnoremap <Space>uf :Denite file_rec<CR>
   nnoremap <Space>ul :Denite line<CR>
   nnoremap <Space>ub :Denite buffer -mode=normal<CR>
   nnoremap <Space>u[  :DeniteCursorWord grep -mode=normal<CR>
@@ -21,6 +20,10 @@ hook_add = '''
     call denite#custom#var('file_rec', 'command',
           \ ['rg', '--files', '--glob', '!.git'])
     call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'final_opts', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
   endif
 '''
 hook_post_source = '''
@@ -311,6 +314,8 @@ repo = 'lambdalisue/gina.vim'
 repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'cohama/agit.vim'
+[[plugins]]
+repo = 'neoclide/denite-git'
 
 # HTML CSS
 [[plugins]]

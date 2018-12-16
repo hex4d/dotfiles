@@ -1,5 +1,10 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+hook_add = '''
+let g:echodoc_enable_at_startup = 1
+let g:echodoc#type = "virtual"
 
 [[plugins]]
 repo ='itchyny/lightline.vim'
@@ -15,7 +20,7 @@ hook_add = '''
         \ },
         \ 'inactive': {
         \ 'left': [['gitbranch', 'gitstatus', 'filename']],
-        \  'right': [['linter_errors', 'linter_warnings', 'linter_ok'], ['lineinfo'], ['fileformat'], ['fileencoding'], ['filetype']]
+        \  'right': [['linter_errors', 'linter_warnings', 'linter_ok'], ['lineinfo'], ['fileformat', 'fileencoding'], ['filetype']]
         \ },
         \ 'component_expand': {
         \   'linter_warnings': 'AleWarning',
@@ -274,12 +279,14 @@ repo = 'HerringtonDarkholme/yats.vim'
 repo = 'mhartington/nvim-typescript'
 build = 'install.sh'
 hook_add = '''
-  nnoremap <C-d><C-d> :TSDefPreview<CR> zz
   nnoremap <C-d><C-o> :TSDoc<CR>
   nnoremap <C-d><C-p> :TSType<CR>
-  " let g:nvim_typescript#type_info_on_hold=1
-  " let g:nvim_typescript#signature_complete=1
-  let g:nvim_typescript#diagnostics_enable=0
+  nnoremap <C-d><C-d> :TSTypeDef<CR>
+  nnoremap <C-d><C-i> :TSImport<CR>
+  let 
+  let g:nvim_typescript#type_info_on_hold = 1
+  let g:nvim_typescript#diagnostics_enable = 0
+
 '''
 
 [[plugins]] # solarized

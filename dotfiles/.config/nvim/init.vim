@@ -40,7 +40,6 @@ endif
 " }}}
 
 
-
 " プラグイン以外のその他設定が続く
 
 "--------------------
@@ -90,6 +89,9 @@ set cmdheight=2
 set noshowmode
 
 set expandtab 
+
+set completeopt+=menuone,noinsert,noselect
+set completeopt-=preview
 
 inoremap <C-j> <ESC>
 
@@ -141,3 +143,4 @@ nnoremap <Space>gc :Gcommit<CR>
 nnoremap <C-d><C-t> <ESC>I<C-R>=strftime("%H:%M")<CR>~
 inoremap <C-d><C-t> <C-R>=strftime("%H:%M")<CR>~
 
+nnoremap <C-n><C-o> :noh<CR>

@@ -132,7 +132,7 @@ nnoremap <Space>cc *Ncgn
 
 nnoremap <Space>y :%y+<CR>
 
-colorscheme solarized
+" colorscheme solarized
 
 nnoremap <Space>gs :Gstatus<CR>
 nnoremap <Space>gd :Gdiff<CR>

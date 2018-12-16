@@ -16,7 +16,8 @@ brew install neovim
 pip3 install neovm
 pip3 install neovim-remote
 
-# some apps
+# utils
 brew install gtags
 brew install thefuck
 brew install jq
+brew install ripgrep

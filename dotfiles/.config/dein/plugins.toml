@@ -6,6 +6,30 @@ hook_add = '''
 " call map(dein#check_clean(), "delete(v:val, 'rf')")
 '''
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+  nnoremap <Space>up :DeniteBufferDir file_rec -mode=normal<CR>
+  nnoremap <Space>uh :Denite file_old -mode=normal<CR>
+  nnoremap <Space>uf :Denite file_rec<CR>
+  nnoremap <Space>ul :Denite line<CR>
+  nnoremap <Space>ub :Denite buffer -mode=normal<CR>
+  nnoremap <Space>u[  :DeniteCursorWord grep -mode=normal<CR>
+  nnoremap <Space>ug  :Denite grep -mode=normal<CR>
+  nnoremap <Space>ur :Denite -resume -mode=normal<CR>
+  call denite#custom#map('insert', '<C-j>', '<denite:enter_mode:normal>', 'noremap')
+  if executable('rg')
+    call denite#custom#var('file_rec', 'command',
+          \ ['rg', '--files', '--glob', '!.git'])
+    call denite#custom#var('grep', 'command', ['rg'])
+  endif
+'''
+hook_post_source = '''
+"  call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
+"  call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>',
+"  'noremap')
+'''
+
+[[plugins]]
 repo = 'Shougo/echodoc.vim'
 hook_add = '''
 let g:echodoc_enable_at_startup = 1
@@ -254,7 +278,6 @@ hook_add = '''
   nnoremap <C-d><C-p> :TSType<CR>
   nnoremap <C-d><C-d> :TSTypeDef<CR>
   nnoremap <C-d><C-i> :TSImport<CR>
-  let 
   let g:nvim_typescript#type_info_on_hold = 1
   let g:nvim_typescript#diagnostics_enable = 0
 
@@ -271,9 +294,6 @@ hook_add = '''
 [[plugins]] # solarized
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
-  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  
   if !has('mac')
     let g:solarized_termcolors=256
   endif
@@ -303,6 +323,8 @@ repo = 'othree/html5.vim'
 repo = 'hail2u/vim-css3-syntax'
 [[plugins]]
 repo = 'ap/vim-css-color'
+[[plugins]]
+repo = 'Valloric/MatchTagAlways'
 
 # Utility
 [[plugins]]
@@ -317,5 +339,3 @@ repo = 'kannokanno/previm'
 hook_add = '''
   let g:previm_open_cmd = 'open -a "Google Chrome"'
 '''
-[[plugins]]
-repo = 'Valloric/MatchTagAlways'

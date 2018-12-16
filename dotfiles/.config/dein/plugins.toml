@@ -1,17 +1,16 @@
+# system
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
 " for clear plugins
 " call map(dein#check_clean(), "delete(v:val, 'rf')")
 '''
-
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
 hook_add = '''
 let g:echodoc_enable_at_startup = 1
 let g:echodoc#type = "virtual"
 '''
-
 [[plugins]]
 repo ='itchyny/lightline.vim'
 hook_add = '''
@@ -115,24 +114,16 @@ hook_add = '''
     return status
   endfunction
 '''
-
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
-
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
 [[plugins]]
 repo = 'jacoborus/tender.vim'
 hook_add = '''
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 '''
-
 [[plugins]] # terminal
 repo = 'hiradd/neoterm'
 if = "has('nvim')"
@@ -149,19 +140,16 @@ hook_add = '''
   let g:neoterm_autoinsert = 1
   " let g:neoterm_open_in_all_tabs = 1
 '''
-
 [[plugins]]
 repo = 'Shougo/vimshell'
 if = "!has('nvim')"
 hook_add = '''
   " source ~/.config/nvim/plugins/neoterm.rc.vim
 '''
-
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 # if = "!has('nvim')"
 build = 'make'
-
 [[plugins]]
 repo ='w0rp/ale'
 hook_add = '''
@@ -179,23 +167,11 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 '''
-
-# [[plugins]]
-# repo = 'neomake/neomake'
-# hook_add = '''
-#   let g:neomake_open_list = 4
-#   autocmd! BufWritePost * Neomake 
-#   let g:neomake_python_python_exe = 'python3'
-#   let g:neomake_python_enabled_makers = ['flake8', 'mypy']
-#   let g:neomake_python_mypy_args = ['--check-untyped-defs', '--ignore-missing-imports']
-# '''
-
 [[plugins]]
 repo = 'tyru/caw.vim'
 hook_add = '''
   map <C-c><C-c> <Plug>(caw:hatpos:toggle)
 '''
-
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 hook_add = '''
@@ -219,68 +195,57 @@ hook_add = '''
 
   let g:EasyMotion_use_upper = 1
 '''
-
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-
-[[plugins]]
-repo = 'michaeljsmith/vim-indent-object'
-
-# [[plugins]]
-# repo = 'raimondi/delimitmate'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'ivalkeen/nerdtree-execute'
-
-[[plugins]]
-repo = 'moznion/hateblo.vim'
-
-[[plugins]]
-repo = 'cohama/agit.vim'
-
-[[plugins]]
-repo = 'vim-scripts/gtags.vim'
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
-
-[[plugins]]
-repo = 'hiradd/easydiary'
-hook_add = '''
-  let g:easydiary_directory = '~/Workspace/note/'
-'''
-
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
   let g:indent_guides_enable_on_vim_startup = 1
 '''
-
 [[plugins]]
-repo = 'kannokanno/previm'
-hook_add = '''
-  let g:previm_open_cmd = 'open -a "Google Chrome"'
-'''
-
+repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
-repo = 'lambdalisue/gina.vim'
-
+repo = 'michaeljsmith/vim-indent-object'
+[[plugins]]
+repo = 'ivalkeen/nerdtree-execute'
+[[plugins]]
+repo = 'vim-scripts/gtags.vim'
+[[plugins]]
+repo = 'itmammoth/doorboy.vim'
+[[plugins]]
+repo = 'tpope/vim-repeat'
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 hook_add = '''
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 '''
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+hook_add = '''
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+'''
 
+# Filetype
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# Typescript
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
-
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
 build = 'install.sh'
@@ -295,6 +260,14 @@ hook_add = '''
 
 '''
 
+# UI
+[[plugins]]
+repo = 'RRethy/vim-illuminate'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+'''
 [[plugins]] # solarized
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
@@ -307,24 +280,42 @@ hook_add = '''
   au MyAutoCmd VimEnter * nested colorscheme solarized
 '''
 
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-hook_add = '''
-  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-'''
-
-[[plugins]]
-repo = 'AndrewRadev/splitjoin.vim'
-
-[[plugins]]
-repo = 'RRethy/vim-illuminate'
-
-[[plugins]]
-repo = 'tpope/vim-repeat'
-
-[[plugins]]
-repo = 'jreybert/vimagit'
-
+# git
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+[[plugins]]
+repo = 'jreybert/vimagit'
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'cohama/agit.vim'
 
+# HTML CSS
+[[plugins]]
+repo = 'Valloric/MatchTagAlways'
+[[plugins]]
+repo = 'mattn/emmet-vim'
+[[plugins]]
+repo = 'othree/html5.vim'
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+[[plugins]]
+repo = 'ap/vim-css-color'
+
+# Utility
+[[plugins]]
+repo = 'hiradd/easydiary'
+hook_add = '''
+  let g:easydiary_directory = '~/Workspace/note/'
+'''
+[[plugins]]
+repo = 'moznion/hateblo.vim'
+[[plugins]]
+repo = 'kannokanno/previm'
+hook_add = '''
+  let g:previm_open_cmd = 'open -a "Google Chrome"'
+'''
+[[plugins]]
+repo = 'Valloric/MatchTagAlways'

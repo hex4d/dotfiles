@@ -80,9 +80,13 @@ nnoremap <Space>e :NERDTreeToggle %:h<CR>
 '''
 on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
 
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
+
+
 # [[plugins]]
 # repo  = 'Quramy/tsuquyomi'
 # on_ft = ['typescript']
-#
+
 # [[plugins]]
 # repo = 'rudism/deoplete-tsuquyomi'

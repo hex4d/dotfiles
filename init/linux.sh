@@ -21,3 +21,5 @@ pip3 install neovim-remote
 
 sudo pip3 install thefuck
 
+sudo apt-get -y install jq
+

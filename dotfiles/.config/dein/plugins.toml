@@ -1,10 +1,16 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+hook_add = '''
+" for clear plugins
+" call map(dein#check_clean(), "delete(v:val, 'rf')")
+'''
+
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
 hook_add = '''
 let g:echodoc_enable_at_startup = 1
 let g:echodoc#type = "virtual"
+'''
 
 [[plugins]]
 repo ='itchyny/lightline.vim'
@@ -306,3 +312,19 @@ repo = 'ryanoasis/vim-devicons'
 hook_add = '''
   let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 '''
+
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+
+[[plugins]]
+repo = 'RRethy/vim-illuminate'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'jreybert/vimagit'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+

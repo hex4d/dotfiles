@@ -39,24 +39,6 @@ on_ft = ['snippet']
 depends = ['neosnippet-snippets']
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-  nnoremap <Space>up :DeniteBufferDir file_rec -mode=normal<CR>
-  nnoremap <Space>uh :Denite file_mru -mode=normal<CR>
-  nnoremap <Space>ub :Denite buffer -mode=normal<CR>
-  nnoremap <Space>uwg :DeniteCursorWord grep -mode=normal<CR>
-  nnoremap <Space>ur :Denite -resume -mode=normal<CR>
-'''
-hook_post_source = '''
-"  call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
-"  call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>',
-"  'noremap')
-
-  " jj で denite/insert を抜けるようにする
-  call denite#custom#map('insert', '<C-j>', '<denite:enter_mode:normal>', 'noremap')
-'''
-
-[[plugins]]
 repo = 'honza/vim-snippets'
 
 [[plugins]]
@@ -80,4 +62,13 @@ nnoremap <Space>e :NERDTreeToggle %:h<CR>
 '''
 on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
 
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
 
+
+# [[plugins]]
+# repo  = 'Quramy/tsuquyomi'
+# on_ft = ['typescript']
+
+# [[plugins]]
+# repo = 'rudism/deoplete-tsuquyomi'

@@ -40,7 +40,6 @@ endif
 " }}}
 
 
-
 " プラグイン以外のその他設定が続く
 
 "--------------------
@@ -88,6 +87,11 @@ set virtualedit=all
 
 set expandtab
 set autoread
+set cmdheight=2
+set noshowmode
+
+set completeopt+=menuone,noinsert,noselect
+set completeopt-=preview
 
 inoremap <C-j> <ESC>
 
@@ -128,7 +132,7 @@ nnoremap <Space>cc *Ncgn
 
 nnoremap <Space>y :%y+<CR>
 
-colorscheme solarized
+" colorscheme solarized
 
 nnoremap <Space>gs :Gstatus<CR>
 nnoremap <Space>gd :Gdiff<CR>
@@ -138,3 +142,5 @@ nnoremap <Space>gc :Gcommit<CR>
 
 nnoremap <C-d><C-t> <ESC>I<C-R>=strftime("%H:%M")<CR>~
 inoremap <C-d><C-t> <C-R>=strftime("%H:%M")<CR>~
+
+nnoremap <C-n><C-o> :noh<CR>

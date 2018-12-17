@@ -21,3 +21,7 @@ pip3 install neovim-remote
 
 sudo pip3 install thefuck
 
+sudo apt-get -y install jq
+
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
+sudo dpkg -i ripgrep_0.10.0_amd64.deb

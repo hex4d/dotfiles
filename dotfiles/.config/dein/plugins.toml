@@ -51,7 +51,7 @@ hook_add = '''
         \  'right': [['linter_errors', 'linter_warnings', 'linter_ok'], ['lineinfo'], ['fileformat', 'fileencoding'], ['filetype']]
         \ },
         \ 'inactive': {
-        \ 'left': [['gitbranch', 'gitstatus', 'filename']],
+        \ 'left': [['gitbranch', 'gitstatus', 'filename', 'modified']],
         \  'right': [['linter_errors', 'linter_warnings', 'linter_ok'], ['lineinfo'], ['fileformat', 'fileencoding'], ['filetype']]
         \ },
         \ 'component_expand': {

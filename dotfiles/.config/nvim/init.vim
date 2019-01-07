@@ -144,3 +144,5 @@ nnoremap <C-d><C-t> <ESC>I<C-R>=strftime("%H:%M")<CR>~
 inoremap <C-d><C-t> <C-R>=strftime("%H:%M")<CR>~
 
 nnoremap <C-n><C-o> :noh<CR>
+
+nnoremap <Space>w :w<CR>

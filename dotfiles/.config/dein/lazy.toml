@@ -64,8 +64,10 @@ on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
-
-
+hook_add = '''
+nmap <silent> <C-l> <Plug>(jsdoc)
+'''
+on_ft = ['typescript']
 # [[plugins]]
 # repo  = 'Quramy/tsuquyomi'
 # on_ft = ['typescript']

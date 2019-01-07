@@ -21,3 +21,10 @@ brew install gtags
 brew install thefuck
 brew install jq
 brew install ripgrep
+
+# font
+git clone https://github.com/miiton/Cica.git
+cd Cica
+docker-compose build ; docker-compose run --rm cica  # ./dist/ に出力される
+
+echo 'You need to set font to iterm2'

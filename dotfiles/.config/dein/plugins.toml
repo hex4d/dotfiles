@@ -141,11 +141,11 @@ hook_add = '''
     return status
   endfunction
 '''
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
+# [[plugins]]
+# repo = 'osyo-manga/vim-precious'
+# depends = ['context_filetype.vim']
+# [[plugins]]
+# repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'jacoborus/tender.vim'
 hook_add = '''
@@ -344,3 +344,5 @@ repo = 'kannokanno/previm'
 hook_add = '''
   let g:previm_open_cmd = 'open -a "Google Chrome"'
 '''
+[[plugins]]
+repo = 'posva/vim-vue'

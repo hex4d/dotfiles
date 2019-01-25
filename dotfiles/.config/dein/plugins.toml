@@ -158,11 +158,11 @@ hook_add = '''
   nnoremap <silent> ,rc :TREPLSendFile<cr>
   nnoremap <silent> ,rl :TREPLSendLine<cr>
   vnoremap <silent> ,rl :TREPLSendSelection<cr>
-  nnoremap <Space>vp :Tnew cd %:h; clear;<CR>
-  nnoremap <Space>r :T cd %:h; clear; python3 -iu %<CR>
+  nnoremap <Space>vp :vert botright T cd %:h; clear;<CR>
+  nnoremap <Space>r :vert botright T cd %:h; clear; ipython --no-autoindent <CR>
   nnoremap <Space>vw :T cd ~/Documents/Workspace/<CR>
   nnoremap <Space>vv :Ttoggle<CR>
-  nnoremap <Space>vo :Topen<CR> cd %:h; clear;<CR>
+  nnoremap <Space>vo :vert botright Topen<CR> cd %:h; clear;<CR>
   nnoremap <Space>vc :Tclose<CR>
   let g:neoterm_autoinsert = 1
   " let g:neoterm_open_in_all_tabs = 1

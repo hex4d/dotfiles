@@ -144,15 +144,15 @@ hook_add = '''
 # [[plugins]]
 # repo = 'osyo-manga/vim-precious'
 # depends = ['context_filetype.vim']
-# [[plugins]]
-# repo = 'Shougo/context_filetype.vim'
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'jacoborus/tender.vim'
 hook_add = '''
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 '''
 [[plugins]] # terminal
-repo = 'hiradd/neoterm'
+repo = 'kassio/neoterm'
 if = "has('nvim')"
 hook_add = '''
   nnoremap <silent> ,rc :TREPLSendFile<cr>
@@ -283,7 +283,6 @@ hook_add = '''
   nnoremap <C-d><C-i> :TSImport<CR>
   let g:nvim_typescript#type_info_on_hold = 1
   let g:nvim_typescript#diagnostics_enable = 0
-
 '''
 
 # UI

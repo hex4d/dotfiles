@@ -66,6 +66,12 @@ on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
 repo = 'heavenshell/vim-jsdoc'
 hook_add = '''
 nmap <silent> <C-l> <Plug>(jsdoc)
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_allow_input_prompt = 0
+let g:jsdoc_input_description = 1
+let g:jsdoc_param_description_separator = ': '
+let g:jsdoc_additional_descriptions = 1
+let g:jsdoc_enable_es6 = 1
 '''
 on_ft = ['typescript']
 # [[plugins]]

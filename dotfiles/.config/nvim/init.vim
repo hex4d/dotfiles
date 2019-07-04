@@ -146,3 +146,5 @@ inoremap <C-d><C-t> <C-R>=strftime("%H:%M")<CR>~
 nnoremap <C-n><C-o> :noh<CR>
 
 nnoremap <Space>w :w<CR>
+
+set conceallevel=0

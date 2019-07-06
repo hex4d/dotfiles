@@ -269,6 +269,8 @@ on_ft = 'toml'
 
 # Typescript
 [[plugins]]
+repo = 'leafgarland/typescript-vim'
+[[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
 [[plugins]]
 repo = 'mhartington/nvim-typescript'

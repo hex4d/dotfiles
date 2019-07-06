@@ -141,9 +141,6 @@ hook_add = '''
     return status
   endfunction
 '''
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 [[plugins]]
@@ -283,6 +280,7 @@ hook_add = '''
   nnoremap <C-d><C-i> :TSImport<CR>
   let g:nvim_typescript#type_info_on_hold = 1
   let g:nvim_typescript#diagnostics_enable = 0
+  let g:nvim_typescript#vue_support = 1
 '''
 
 # UI
@@ -316,20 +314,6 @@ repo = 'cohama/agit.vim'
 [[plugins]]
 repo = 'neoclide/denite-git'
 
-# HTML CSS
-[[plugins]]
-repo = 'Valloric/MatchTagAlways'
-[[plugins]]
-repo = 'mattn/emmet-vim'
-[[plugins]]
-repo = 'othree/html5.vim'
-[[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-[[plugins]]
-repo = 'ap/vim-css-color'
-[[plugins]]
-repo = 'Valloric/MatchTagAlways'
-
 # Utility
 [[plugins]]
 repo = 'hiradd/easydiary'
@@ -343,5 +327,3 @@ repo = 'kannokanno/previm'
 hook_add = '''
   let g:previm_open_cmd = 'open -a "Google Chrome"'
 '''
-[[plugins]]
-repo = 'posva/vim-vue'

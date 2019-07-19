@@ -28,6 +28,9 @@ nodebrew install latest
 nodebrew use latest
 npm install -g neovim
 
+# hub
+brew install hub
+
 # yarn
 brew install yarn
 
@@ -37,4 +40,3 @@ cd Cica
 docker-compose build ; docker-compose run --rm cica  # ./dist/ に出力される
 
 echo 'You need to set font to iterm2'
-

@@ -100,9 +100,6 @@ on_ft = ['vue']
 
 # HTML CSS
 [[plugins]]
-repo = 'Valloric/MatchTagAlways'
-on_ft = ['vue', 'html', 'css']
-[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['vue', 'html', 'css']
 [[plugins]]

@@ -13,7 +13,7 @@ brew install python3
 
 # neovim
 brew install neovim
-pip3 install neovm
+pip3 install neovim
 pip3 install neovim-remote
 
 # utils
@@ -22,9 +22,19 @@ brew install thefuck
 brew install jq
 brew install ripgrep
 
+# node
+brew install nodebrew
+nodebrew install latest
+nodebrew use latest
+npm install -g neovim
+
+# yarn
+brew install yarn
+
 # font
 git clone https://github.com/miiton/Cica.git
 cd Cica
 docker-compose build ; docker-compose run --rm cica  # ./dist/ に出力される
 
 echo 'You need to set font to iterm2'
+

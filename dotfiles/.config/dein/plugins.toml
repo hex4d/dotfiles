@@ -300,10 +300,12 @@ repo = 'HerringtonDarkholme/yats.vim'
 repo = 'mhartington/nvim-typescript'
 build = 'install.sh'
 hook_add = '''
-  nnoremap <C-d><C-o> :TSDoc<CR>
-  nnoremap <C-d><C-p> :TSType<CR>
-  nnoremap <C-d><C-d> :TSTypeDef<CR>
-  nnoremap <C-d><C-i> :TSImport<CR>
+  nnoremap <Space>to :TSDoc<CR>
+  nnoremap <Space>tp :TSType<CR>
+  nnoremap <Space>tt :TSTypeDef<CR>
+  nnoremap <Space>ti :TSImport<CR>
+  nnoremap <Space>tr :TSRefs<CR>
+  nnoremap <Space>td :TSDefPreview<CR>
   let g:nvim_typescript#type_info_on_hold = 1
   let g:nvim_typescript#diagnostics_enable = 0
   let g:nvim_typescript#vue_support = 1
@@ -324,6 +326,7 @@ hook_add = '''
     let g:solarized_termcolors=256
   endif
   au MyAutoCmd VimEnter * nested colorscheme solarized
+  set background=light
 '''
 
 # git
@@ -356,5 +359,5 @@ hook_add = '''
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
 hook_add = '''
-  nnoremap <Space>tt :TableModeToggle<CR>
+  nnoremap <Space>tm :TableModeToggle<CR>
 '''

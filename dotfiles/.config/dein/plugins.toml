@@ -361,3 +361,5 @@ repo = 'dhruvasagar/vim-table-mode'
 hook_add = '''
   nnoremap <Space>tm :TableModeToggle<CR>
 '''
+[[plugins]]
+repo = 'elixir-editors/vim-elixir'

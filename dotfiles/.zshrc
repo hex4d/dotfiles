@@ -107,8 +107,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 fi
 
 PATH=$PATH:/usr/local/bin
-export ANDROID_HOME=/Users/l2b_009/Library/Android/sdk
-export ANDROID_SDK_ROOT=/Users/l2b_009/Library/Android/sdk
+export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_SDK_ROOT=~/Library/Android/sdk
 PATH=$PATH:$ANDROID_HOME/platform-tools
 PATH=$PATH:$ANDROID_HOME/bin
 export JAVA_HOME=`/usr/libexec/java_home`

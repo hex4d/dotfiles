@@ -148,3 +148,6 @@ nnoremap <C-n><C-o> :noh<CR>
 nnoremap <Space>w :w<CR>
 
 set conceallevel=0
+
+au BufNewFile,BufRead *.vue setf vue
+autocmd FileType vue syntax sync fromstart

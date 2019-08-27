@@ -96,6 +96,8 @@ let g:LanguageClient_diagnosticsEnable = 0
 '''
 [[plugins]]
 repo = 'posva/vim-vue'
+hook_add ='''
+'''
 on_ft = ['vue']
 
 # HTML CSS
@@ -111,3 +113,10 @@ on_ft = ['vue', 'html', 'css']
 [[plugins]]
 repo = 'ap/vim-css-color'
 on_ft = ['vue', 'html', 'css']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+build = 'cd app & yarn install'
+
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+

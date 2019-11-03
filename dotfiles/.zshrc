@@ -106,6 +106,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   }
 fi
 
+PATH=$PATH:~/.nodebrew/current/bin
+PATH=$PATH:./node_modules/.bin
 PATH=$PATH:/usr/local/bin
 export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
@@ -113,8 +115,6 @@ PATH=$PATH:$ANDROID_HOME/platform-tools
 PATH=$PATH:$ANDROID_HOME/bin
 export JAVA_HOME=`/usr/libexec/java_home`
 PATH=$PATH:$JAVA_HOME/bin
-PATH=$PATH:~/.nodebrew/current/bin
-PATH=$PATH:./node_modules/.bin
 
 
 add-zsh-hook precmd _precmd
@@ -183,3 +183,10 @@ fi
 
 eval $(thefuck --alias)
 alias fk=fuck
+
+fpath=(~/.zsh/completion $fpath)
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+autoload -Uz compinit && compinit -i
+

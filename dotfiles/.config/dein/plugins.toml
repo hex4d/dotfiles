@@ -363,14 +363,11 @@ hook_add = '''
 '''
 [[plugins]]
 repo = 'elixir-editors/vim-elixir'
-<<<<<<< HEAD
 
 [[plugins]]
 repo = 'ElmCast/elm-vim'
 
 [[plugins]]
 repo = 'janko/vim-test'
-=======
 [[plugins]]
 repo = 'ElmCast/elm-vim'
->>>>>>> 2cf8d8ddce909c05a63215412c3d536e5dcef398

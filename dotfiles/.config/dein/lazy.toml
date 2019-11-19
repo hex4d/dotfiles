@@ -34,13 +34,13 @@ hook_source = '''
     set conceallevel=2 concealcursor=niv
   endif
   let g:neosnippet#snippets_directory = '~/Workspace/product/snippets'
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  " Tell Neosnippet about the other snippets
+  let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets/'
 '''
 on_i  = 1
 on_ft = ['snippet']
-depends = ['neosnippet-snippets']
-
-[[plugins]]
-repo = 'honza/vim-snippets'
+depends = ['neosnippet-snippets', 'vim-snippets']
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'

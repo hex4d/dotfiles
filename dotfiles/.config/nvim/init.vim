@@ -40,6 +40,10 @@ endif
 " }}}
 
 
+" node
+let g:node_host_prog = $HOME . '/.nodebrew/current/bin/neovim-node-host'
+
+
 " プラグイン以外のその他設定が続く
 
 "--------------------

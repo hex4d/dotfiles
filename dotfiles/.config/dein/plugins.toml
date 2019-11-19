@@ -250,6 +250,9 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
   let g:indent_guides_enable_on_vim_startup = 1
@@ -363,5 +366,14 @@ hook_add = '''
 '''
 [[plugins]]
 repo = 'elixir-editors/vim-elixir'
+
+[[plugins]]
+repo = 'ElmCast/elm-vim'
+
+[[plugins]]
+repo = 'janko/vim-test'
+hook_add = '''
+nmap <silent> t<C-n> :TestNearest<CR>
+'''
 [[plugins]]
 repo = 'ElmCast/elm-vim'

@@ -115,7 +115,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 PATH=$PATH:$JAVA_HOME/bin
 PATH=$PATH:~/.nodebrew/current/bin
 PATH=$PATH:./node_modules/.bin
-
+export JIRA_HOME=~/Jira/
 
 add-zsh-hook precmd _precmd
 add-zsh-hook preexec _preexec
@@ -183,3 +183,7 @@ fi
 
 eval $(thefuck --alias)
 alias fk=fuck
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi

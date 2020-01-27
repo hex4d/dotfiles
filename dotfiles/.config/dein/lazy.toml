@@ -1,17 +1,17 @@
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_source = '''
-  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#file#enable_buffer_path = 1
-  let g:deoplete#max_list = 100
-'''
-on_i = 1
+#[[plugins]]
+#repo = 'Shougo/deoplete.nvim'
+#hook_source = '''
+  #inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+  #inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        #\ neosnippet#expandable_or_jumpable() ?
+        #\    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+  #inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+  #let g:deoplete#enable_at_startup = 1
+  #let g:deoplete#enable_smart_case = 1
+  #let g:deoplete#file#enable_buffer_path = 1
+  #let g:deoplete#max_list = 100
+#'''
+#on_i = 1
 
 
 [[plugins]]

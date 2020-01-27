@@ -13,16 +13,6 @@ hook_source = '''
 '''
 on_i = 1
 
-[[plugins]]
-repo = 'davidhalter/jedi'
-on_ft = 'python'
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-hook_source = '''
-  let g:deoplete#sources#jedi#server_timeout = 20
-'''
-on_ft = 'python'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -50,18 +40,14 @@ on_source = ['denite.nvim']
 repo = 'Shougo/neoyank.vim'
 on_source = ['denite.nvim']
 
-[[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
-on_ft = 'python'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-nnoremap <Space>h :NERDTreeToggle<CR>
-nnoremap <Space>e :NERDTreeToggle %:h<CR>
-"nnoremap <Space>e :NERDTreeToggle<CR>
-'''
-on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
+#[[plugins]]
+#repo = 'scrooloose/nerdtree'
+#hook_add = '''
+#nnoremap <Space>h :NERDTreeToggle<CR>
+#nnoremap <Space>e :NERDTreeToggle %:h<CR>
+#"nnoremap <Space>e :NERDTreeToggle<CR>
+#'''
+#on_source = ['nerdtree-yank-mapping', 'nerdtree-execute']
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
@@ -75,6 +61,20 @@ let g:jsdoc_additional_descriptions = 1
 let g:jsdoc_enable_es6 = 1
 '''
 on_ft = ['typescript']
+
+# [[plugins]]
+# repo = 'davidhalter/jedi'
+# on_ft = 'python'
+# [[plugins]]
+# repo = 'zchee/deoplete-jedi'
+# hook_source = '''
+#   let g:deoplete#sources#jedi#server_timeout = 20
+# '''
+# on_ft = 'python'
+# [[plugins]]
+# repo = 'Vimjas/vim-python-pep8-indent'
+# on_ft = 'python'
+
 # [[plugins]]
 # repo  = 'Quramy/tsuquyomi'
 # on_ft = ['typescript']
@@ -82,23 +82,23 @@ on_ft = ['typescript']
 # [[plugins]]
 # repo = 'rudism/deoplete-tsuquyomi'
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-depends = 'deoplete.nvim'
-on_ft = ['vue']
-build = './install.sh'
-hook_source = '''
-let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls'],
-    \ }
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsEnable = 0
-'''
-[[plugins]]
-repo = 'posva/vim-vue'
-hook_add ='''
-'''
-on_ft = ['vue']
+# [[plugins]]
+# repo = 'autozimu/LanguageClient-neovim'
+# depends = 'deoplete.nvim'
+# on_ft = ['vue']
+# build = './install.sh'
+# hook_source = '''
+# let g:LanguageClient_serverCommands = {
+#     \ 'vue': ['vls'],
+#     \ }
+# let g:LanguageClient_autoStart = 1
+# let g:LanguageClient_diagnosticsEnable = 0
+# '''
+# [[plugins]]
+# repo = 'posva/vim-vue'
+# hook_add ='''
+# '''
+# on_ft = ['vue']
 
 # HTML CSS
 [[plugins]]
@@ -114,9 +114,9 @@ on_ft = ['vue', 'html', 'css']
 repo = 'ap/vim-css-color'
 on_ft = ['vue', 'html', 'css']
 
+# markdown
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 build = 'cd app & yarn install'
-
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 

@@ -120,7 +120,7 @@ nnoremap <Space>s :source ~/Workspace/dotfiles/dotfiles/.config/nvim/init.vim<CR
 nnoremap <Space>p :tabnew ~/Workspace/dotfiles/dotfiles/.config/dein/plugins.toml<CR>
 nnoremap <Space>lp :tabnew ~/Workspace/dotfiles/dotfiles/.config/dein/lazy.toml<CR>
 
-map <Leader> ,
+map <Leader> <Space>
 nnoremap cd :cd %:h<CR>
 tnoremap <> <ESC> <C-\><C-n>
 tnoremap <silent> <C-j> <C-\><C-n>
@@ -137,12 +137,6 @@ nnoremap <Space>cc *Ncgn
 nnoremap <Space>y :%y+<CR>
 
 " colorscheme solarized
-
-nnoremap <Space>gs :Gstatus<CR>
-nnoremap <Space>gd :Gdiff<CR>
-nnoremap <Space>gb :Gblame<CR>
-nnoremap <Space>ga :Gwrite<CR>
-nnoremap <Space>gc :Gcommit<CR>
 
 nnoremap <C-d><C-t> <ESC>I<C-R>=strftime("%H:%M")<CR>~
 inoremap <C-d><C-t> <C-R>=strftime("%H:%M")<CR>~

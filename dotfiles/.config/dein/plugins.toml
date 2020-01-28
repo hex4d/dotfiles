@@ -178,37 +178,37 @@ repo = 'Shougo/vimproc.vim'
 # if = "!has('nvim')"
 build = 'make'
 
-#[[plugins]]
-#repo ='w0rp/ale'
-#hook_add = '''
-#nmap <silent> <C-e><C-j> <Plug>(ale_next_wrap)
-#nmap <silent> <C-e><C-k> <Plug>(ale_previous_wrap)
+[[plugins]]
+repo ='w0rp/ale'
+hook_add = '''
+nmap <silent> <C-e><C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-e><C-k> <Plug>(ale_previous_wrap)
 
-#" let g:ale_set_loclist = 0
-#" let g:ale_set_quickfix = 1
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix = 1
 
-#let g:ale_fixers = {
-  #\    'javascript': ['eslint'],
-  #\    'typescript': ['eslint'],
-  #\    'vue': ['eslint'],
-  #\    'css': ['stylelint'],
-  #\    'scss': ['stylelint'],
-  #\}
-#let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+  \    'javascript': ['eslint'],
+  \    'typescript': ['eslint'],
+  \    'vue': ['eslint'],
+  \    'css': ['stylelint'],
+  \    'scss': ['stylelint'],
+  \}
+let g:ale_fix_on_save = 1
 
-#let g:ale_sign_error = ''
-#let g:ale_sign_warning = ''
-#let g:ale_echo_msg_error_str = 'E'
-#let g:ale_echo_msg_warning_str = 'W'
-#let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-#let g:ale_completion_enabled = 0
-#'''
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_completion_enabled = 0
+'''
 
-# [[plugins]]
-# repo = 'tyru/caw.vim'
-# hook_add = '''
-#   map <C-c><C-c> <Plug>(caw:hatpos:toggle)
-# '''
+ [[plugins]]
+ repo = 'tyru/caw.vim'
+ hook_add = '''
+   map <C-c><C-c> <Plug>(caw:hatpos:toggle)
+ '''
 [[plugins]]
 repo = 'Lokaltog/vim-easymotion'
 hook_add = '''
@@ -357,8 +357,8 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 # Typescript
-# [[plugins]]
-# repo = 'HerringtonDarkholme/yats.vim'
+ [[plugins]]
+ repo = 'HerringtonDarkholme/yats.vim'
 
 # [[plugins]]
 # repo = 'mhartington/nvim-typescript'
@@ -452,7 +452,6 @@ hook_add = '''
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
-  nmap <silent> gg <Plug>(coc-diagnostic-info)
   nmap <silent> qf <Plug>(coc-fix-current)
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -464,3 +463,6 @@ hook_add = '''
   endif
   endfunction
 '''
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'

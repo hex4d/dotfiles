@@ -147,5 +147,9 @@ nnoremap <Space>w :w<CR>
 
 set conceallevel=0
 
-au BufNewFile,BufRead *.vue setf vue
+au BufNewFile,BufEnter *.vue setf vue
 autocmd FileType vue syntax sync fromstart
+
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+

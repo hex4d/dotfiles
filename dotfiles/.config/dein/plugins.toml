@@ -117,8 +117,8 @@ hook_add = '''
     return winwidth(0) > 160 ?
           \ expand('%:p') !=# '' ? expand('%:p') : '[No Name]' :
           \ winwidth(0) > 120 ? 
-          \ expand('%:t') !=# '' ? expand('%:h') . expand('%:t') : '[No Name]' :
-          \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+          \ expand('%:t') !=# '' ? expand('%:h') .'/'. expand('%:t') : '[No Name]' :
+          \ expand('%:t') !=# '' ? expand('%:h') .'/'. expand('%:t') : '[No Name]'
   endfunction
 
   function GitBranch()
@@ -134,12 +134,12 @@ hook_add = '''
     let staged = gina#component#status#staged()
     let unstaged = gina#component#status#unstaged()
     let conflicted = gina#component#status#conflicted()
-    return printf(
+    return windwidth(0) > 120 ? printf(
           \ 's:%s u:%s c:%s',
           \ staged,
           \ unstaged,
           \ conflicted,
-          \)
+          \) : ''
     let result = system('git --git-dir=' . fugitive#extract_git_dir(expand('%:p')) . ' --work-tree=' . substitute(fugitive#extract_git_dir(expand('%:p')), '.git', '', 'g') .' status')
     " let dir = a:0 ? a:1 : (exists('b:git_dir') && b:git_dir !=# '' ? b:git_dir : fugitive#extract_git_dir(expand('%:p')))
 
@@ -218,6 +218,14 @@ let g:ale_sign_warning = ''
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+let g:ale_linters = {
+\ 'cs': ['OmniSharp']
+\}
+let g:ale_cs_mcsc_assemblies = ['/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine.dll']
+let g:ale_cs_csc_assemblies = ['/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine.dll']
+let g:ale_cs_mcsc_assemblies += [expand('%:h') . '/obj/Debug']
+let g:ale_cs_csc_assemblies += [expand('%:h') . '/obj/Debug']
 '''
 [[plugins]]
 repo = 'tyru/caw.vim'
@@ -377,3 +385,5 @@ nmap <silent> t<C-n> :TestNearest<CR>
 '''
 [[plugins]]
 repo = 'ElmCast/elm-vim'
+[[plugins]]
+repo = 'OmniSharp/omnisharp-vim'

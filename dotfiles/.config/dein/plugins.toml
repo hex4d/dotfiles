@@ -1,4 +1,4 @@
-# system
+#report system
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
@@ -281,7 +281,7 @@ repo = 'Shougo/defx.nvim'
   \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> l
   \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> E
+  nnoremap <silent><buffer><expr> e
   \ defx#do_action('drop', 'vsplit')
   nnoremap <silent><buffer><expr> P
   \ defx#do_action('open', 'pedit')
@@ -422,7 +422,6 @@ hook_add = '''
   nnoremap <Space>tm :TableModeToggle<CR>
 '''
 
-
 [[plugins]]
 repo = 'janko/vim-test'
 hook_add = '''
@@ -430,13 +429,12 @@ nmap <silent> t<C-n> :TestNearest<CR>
 '''
 
 # 2020
-
 [[plugins]]
 repo = 'preservim/nerdcommenter'
 hook_add ='''
-  map <C-c><C-c> <plug>NERDCommenterComment
   map <C-c><C-u> <plug>NERDCommenterUncomment
   map <C-c><C-s> <plug>NERDCommenterSexy
+  map <C-c><C-c> <plug>NERDCommenterAlignLeft
 '''
 
 [[plugins]]

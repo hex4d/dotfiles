@@ -429,12 +429,21 @@ nmap <silent> t<C-n> :TestNearest<CR>
 '''
 
 # 2020
+# [[plugins]]
+# repo = 'preservim/nerdcommenter'
+# hook_add ='''
+#   map <C-c><C-u> <plug>NERDCommenterUncomment
+#   map <C-c><C-s> <plug>NERDCommenterSexy
+#   map <C-c><C-c> <plug>NERDCommenterAlignLeft
+#   let NERDSpaceDelims=1
+# '''
+
 [[plugins]]
-repo = 'preservim/nerdcommenter'
+repo = 'tomtom/tcomment_vim'
 hook_add ='''
-  map <C-c><C-u> <plug>NERDCommenterUncomment
-  map <C-c><C-s> <plug>NERDCommenterSexy
-  map <C-c><C-c> <plug>NERDCommenterAlignLeft
+nmap <silent> <C-c><C-c> :TComment<CR>
+vmap <silent> <C-c><C-c> :TComment<CR>
+
 '''
 
 [[plugins]]
@@ -456,6 +465,7 @@ hook_add = '''
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
   nmap <silent> qf <Plug>(coc-fix-current)
+  nmap <silent> qa <Plug>(coc-codeaction)
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
   function! s:show_documentation()

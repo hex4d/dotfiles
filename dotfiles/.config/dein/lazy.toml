@@ -94,11 +94,21 @@ on_ft = ['typescript']
 # let g:LanguageClient_autoStart = 1
 # let g:LanguageClient_diagnosticsEnable = 0
 # '''
-# [[plugins]]
-# repo = 'posva/vim-vue'
-# hook_add ='''
-# '''
-# on_ft = ['vue']
+ [[plugins]]
+ repo = 'posva/vim-vue'
+ hook_add ='''
+ '''
+ on_ft = ['vue']
+ [[plugins]]
+ repo = 'cakebaker/scss-syntax.vim'
+ hook_add ='''
+ '''
+ on_ft = ['vue', 'html', 'typescript.jsx']
+ [[plugins]]
+ repo = 'othree/xml.vim'
+ hook_add ='''
+ '''
+ on_ft = ['vue', 'html', 'typescript.jsx']
 
 # HTML CSS
 [[plugins]]

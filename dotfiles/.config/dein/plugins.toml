@@ -469,3 +469,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'
+
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'

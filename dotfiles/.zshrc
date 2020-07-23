@@ -106,7 +106,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   }
 fi
 
-PATH=$PATH:~/.nodebrew/current/bin
 PATH=$PATH:/usr/local/bin
 export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
@@ -117,8 +116,11 @@ PATH=$PATH:$ANDROID_HOME/platform-tools
 PATH=$PATH:$ANDROID_HOME/bin
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 PATH=$PATH:$JAVA_HOME/bin
-PATH=$PATH:~/.nodebrew/current/bin
-PATH=$PATH:./node_modules/.bin
+# PATH=$PATH:./node_modules/.bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 add-zsh-hook precmd _precmd
 add-zsh-hook preexec _preexec
@@ -196,4 +198,6 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 autoload -Uz compinit && compinit -i
 eval "$(pyenv init -)"
+
+
 

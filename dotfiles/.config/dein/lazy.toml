@@ -115,7 +115,6 @@ on_ft = ['typescript', 'javascript']
 [[plugins]]
 repo = 'mattn/emmet-vim'
 hook_add ='''
-<<<<<<< HEAD
 let g:user_emmet_settings = {
   \ 'html' : {
     \     'block_all_childless' : 1

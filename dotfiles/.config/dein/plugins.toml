@@ -151,6 +151,7 @@ repo = 'jacoborus/tender.vim'
 hook_add = '''
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 '''
+
 [[plugins]] # terminal
 repo = 'kassio/neoterm'
 if = "has('nvim')"
@@ -166,7 +167,9 @@ hook_add = '''
   nnoremap <Space>vc :Tclose<CR>
   let g:neoterm_autoinsert = 1
   " let g:neoterm_open_in_all_tabs = 1
+  let g:neoterm_repl_php = 'php'
 '''
+
 [[plugins]]
 repo = 'Shougo/vimshell'
 if = "!has('nvim')"

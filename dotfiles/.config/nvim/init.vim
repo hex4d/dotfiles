@@ -1,4 +1,7 @@
 if !&compatible
+
+
+
   set nocompatible
 endif
 
@@ -41,7 +44,8 @@ endif
 
 
 " node
-let g:node_host_prog = $HOME . '/.nodebrew/current/bin/neovim-node-host'
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+" /usr/local/lib/node_modules/neovim/bin/cli.js
 
 
 " プラグイン以外のその他設定が続く
@@ -80,7 +84,7 @@ set wrapscan
 set showmatch
 " インデント
 set autoindent
-set tabstop=4
+set tabstop=2
 set shiftwidth=2
 "TAB,EOFなどを可視化する
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
@@ -114,6 +118,11 @@ nnoremap tn :tabnew<CR>
 nnoremap td :tabclose<CR>
 nnoremap tj :tabprevious<CR>
 nnoremap tk :tabnext<CR>
+
+nnoremap <C-t><C-n> :tabnew<CR>
+nnoremap <C-t><C-d> :tabclose<CR>
+nnoremap <C-t><C-j> :tabprevious<CR>
+nnoremap <C-t><C-k> :tabnext<CR>
 
 nnoremap <Space>, :tabnew ~/Workspace/dotfiles/dotfiles/.config/nvim/init.vim<CR>
 nnoremap <Space>s :source ~/Workspace/dotfiles/dotfiles/.config/nvim/init.vim<CR>
@@ -152,4 +161,14 @@ autocmd FileType vue syntax sync fromstart
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
+" php
+autocmd FileType php set shiftwidth=4
+autocmd FileType html set shiftwidth=4
+autocmd FileType css set shiftwidth=4
+autocmd FileType scss set shiftwidth=4
 
+
+
+function! ImgToTemp()
+    :%s/img\(.\{-}\)src="images\(.\{-}\)"/img\1src="\{\{ 'assets\/images\2' | theme }}"/g
+endfunction

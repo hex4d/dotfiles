@@ -12,9 +12,15 @@ call denite#custom#option('default', {
     \ 'split': 'floating',
     \ 'winwidth': 200,
     \ 'wincol': 50,
+    \ 'highlight_matched_char': 'QuickFixLine',
+    \ 'highlight_matched_range': 'Visual',
+    \ 'highlight_window_background': 'Visual',
+    \ 'highlight_filter_background': 'DiffAdd',
+    \ 'winrow': 1,
     \ })
 
-  nnoremap <Space>uf :Denite file/rec <CR>
+  nnoremap <Space>uf :DeniteProjectDir file/rec -highlight-filter-background=Search <CR>
+
   nnoremap <Space>uh :Denite file/old <CR>
   nnoremap <Space>ul :Denite line<CR>
   nnoremap <Space>ub :Denite buffer <CR>
@@ -262,100 +268,6 @@ hook_add = '''
   nmap ga <Plug>(EasyAlign)
 '''
 
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-  hook_add = '''
-  nnoremap <silent><Space>e :Defx -split=vertical -winwidth=45 -direction=topleft -columns=git:mark:icons:indent:filename:type `expand('%:p:h')` -search=`expand('%:p')`<CR>
-  autocmd FileType defx call s:defx_my_settings()
-  function! s:defx_my_settings() abort
-  " Define mappings
-  nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> c
-  \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m
-  \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> p
-  \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> l
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> e
-  \ defx#do_action('drop', 'vsplit')
-  nnoremap <silent><buffer><expr> P
-  \ defx#do_action('open', 'pedit')
-  nnoremap <silent><buffer><expr> o
-  \ defx#do_action('open_or_close_tree')
-  nnoremap <silent><buffer><expr> K
-  \ defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> N
-  \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> M
-  \ defx#do_action('new_multiple_files')
-  nnoremap <silent><buffer><expr> C
-  \ defx#do_action('toggle_columns',
-      \                'mark:indent:icon:filename:type:size:time')
-  nnoremap <silent><buffer><expr> S
-  \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><buffer><expr> d
-  \ defx#do_action('remove')
-  nnoremap <silent><buffer><expr> r
-  \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> !
-  \ defx#do_action('execute_command')
-  nnoremap <silent><buffer><expr> x
-  \ defx#do_action('execute_system')
-  nnoremap <silent><buffer><expr> yy
-  \ defx#do_action('yank_path')
-  nnoremap <silent><buffer><expr> .
-  \ defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> ;
-\ defx#do_action('repeat')
-  nnoremap <silent><buffer><expr> h
-  \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> ~
-  \ defx#do_action('cd')
-  nnoremap <silent><buffer><expr> q
-  \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
-  \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *
-  \ defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> j
-  \ line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k
-  \ line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> <C-l>
-  \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-  \ defx#do_action('print')
-  nnoremap <silent><buffer><expr> cd
-  \ defx#do_action('change_vim_cwd')
-  endfunction
-  '''
-
-#[[plugins]]
-#repo = 'ivalkeen/nerdtree-execute'
-#[[plugins]]
-#repo = 'Xuyuanp/nerdtree-git-plugin'
-#hook_add = '''
-#let g:NERDTreeIndicatorMapCustom = {
-    #\ "Modified"  : "✹",
-    #\ "Staged"    : "✚",
-    #\ "Untracked" : "✭",
-    #\ "Renamed"   : "➜",
-    #\ "Unmerged"  : "═",
-    #\ "Deleted"   : "✖",
-    #\ "Dirty"     : "✗",
-    #\ "Clean"     : "✔︎",
-    #\ "Unknown"   : "?"
-    #\ }
-#'''
-
 # Filetype
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -364,21 +276,6 @@ on_ft = 'toml'
 # Typescript
  [[plugins]]
  repo = 'HerringtonDarkholme/yats.vim'
-
-# [[plugins]]
-# repo = 'mhartington/nvim-typescript'
-# build = 'install.sh'
-# hook_add = '''
-#   nnoremap <Space>to :TSDoc<CR>
-#   nnoremap <Space>tp :TSType<CR>
-#   nnoremap <Space>tt :TSTypeDef<CR>
-#   nnoremap <Space>ti :TSImport<CR>
-#   nnoremap <Space>tr :TSRefs<CR>
-#   nnoremap <Space>td :TSDefPreview<CR>
-#   let g:nvim_typescript#type_info_on_hold = 1
-#   let g:nvim_typescript#diagnostics_enable = 0
-#   let g:nvim_typescript#vue_support = 1
-# '''
 
 # UI
 [[plugins]]
@@ -467,8 +364,11 @@ hook_add = '''
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
+  nmap <silent> grn <Plug>(coc-rename)
   nmap <silent> qf <Plug>(coc-fix-current)
   nmap <silent> qa <Plug>(coc-codeaction)
+  nmap <silent> qa <Plug>(coc-codeaction)
+
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
   function! s:show_documentation()
@@ -478,6 +378,17 @@ hook_add = '''
     call CocAction('doHover')
   endif
   endfunction
+
+  nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+  nnoremap <silent><nowait> gs  :<C-u>CocList -I symbols<cr>
+
+
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-h> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-k>'
+let g:coc_snippet_prev = '<c-g>'
+imap <C-g> <Plug>(coc-snippets-expand-jump)
+xmap <Space>x  <Plug>(coc-convert-snippet)
 '''
 
 [[plugins]]
@@ -485,3 +396,52 @@ repo = 'MaxMEllon/vim-jsx-pretty'
 
 [[plugins]]
 repo = 'AndrewRadev/splitjoin.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo='lambdalisue/fern.vim'
+hook_add = '''
+nnoremap <space>e :Fern . -reveal=%:p -drawer -toggle<CR>
+nnoremap <space><C-e> :Fern %:h -drawer -toggle<CR>
+function! s:init_fern() abort
+  " Use 'select' instead of 'edit' for default 'open' action
+  nmap <buffer> T <Plug>(fern-action-open:edit)
+  nnoremap <buffer> t <Nop>
+  nmap <buffer> r <Plug>(fern-action-reload)
+
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
+'''
+
+[[plugins]]
+repo ='tyru/capture.vim'
+
+[[plugins]]
+repo ='mattn/webapi-vim'
+
+[[plugins]]
+repo ='liuchengxu/vista.vim'
+hook_add = '''
+let g:vista_icon_indent = [">", ">>"]
+let g:vista_default_executive = 'coc'
+let g:vista_fzf_preview = ['right:50%']
+let g:vista_sidebar_width = 50
+let g:vista#renderer#icons = {
+\   "function": "\ue60b",
+\   "variable": "v",
+\   "method": "\ue60b",
+\   "property": "v",
+\  }
+
+nnoremap <space>vl :Vista show<CR>
+'''
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+build = 'env PY3=ON ./install.sh'

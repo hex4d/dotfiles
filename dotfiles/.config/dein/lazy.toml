@@ -97,29 +97,45 @@ on_ft = ['typescript', 'javascript']
  [[plugins]]
  repo = 'posva/vim-vue'
  hook_add ='''
+ let g:vue_pre_processors = 'detect_on_enter'
  '''
  on_ft = ['vue']
- [[plugins]]
- repo = 'cakebaker/scss-syntax.vim'
- hook_add ='''
- '''
- on_ft = ['vue', 'html', 'typescript.jsx', 'scss']
- [[plugins]]
- repo = 'othree/xml.vim'
- hook_add ='''
- '''
- on_ft = ['vue', 'html', 'typescript.jsx']
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+hook_add ='''
+'''
+on_ft = ['vue', 'html', 'typescript.jsx', 'scss']
+[[plugins]]
+repo = 'othree/xml.vim'
+hook_add ='''
+'''
+on_ft = ['vue', 'html', 'typescript.jsx']
 
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+hook_add ='''
+'''
+on_ft = ['vue', 'html', 'typescript.jsx']
+[[plugins]]
+repo = 'othree/xml.vim'
+hook_add ='''
+'''
+on_ft = ['vue', 'html', 'typescript.jsx']
 # HTML CSS
+
 [[plugins]]
 repo = 'mattn/emmet-vim'
 hook_add ='''
 let g:user_emmet_settings = {
+  \ 'html' : {
+    \     'block_all_childless' : 1
+      \   }
+  \}
+  let g:user_emmet_settings = {
   \ 'typescript' : {
     \     'extends' : 'jsx',
     \ },
   \}
-
 '''
 on_ft = ['vue', 'html', 'css', 'javascript', 'typescript.jsx', 'typescript.tsx', 'typescriptreact', 'php', 'liquid', 'scss']
 [[plugins]]

@@ -302,12 +302,17 @@ repo = 'airblade/vim-gitgutter'
 repo = 'jreybert/vimagit'
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
+hook_add = '''
+  nnoremap <Space>gb :Gina blame --opener=vsplit<CR>
+  nnoremap <Space>gs :Gina status --opener=vsplit<CR>
+  nnoremap <Space>gd :Gina diff --opener=vsplit<CR>
+  nnoremap <Space>gl :Gina log --opener=vsplit<CR>
+  nnoremap <Space>glc :Gina log : --opener=vsplit<CR>
+'''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'cohama/agit.vim'
-[[plugins]]
-repo = 'neoclide/denite-git'
 
 # Utility
 [[plugins]]
@@ -360,14 +365,13 @@ repo = 'neoclide/coc.nvim'
 rev = 'release'
 merged = '0'
 hook_add = '''
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-  nmap <silent> grn <Plug>(coc-rename)
-  nmap <silent> qf <Plug>(coc-fix-current)
-  nmap <silent> qa <Plug>(coc-codeaction)
-  nmap <silent> qa <Plug>(coc-codeaction)
+  nmap <silent> <space>cd <Plug>(coc-definition)
+  nmap <silent> <space>cy <Plug>(coc-type-definition)
+  nmap <silent> <space>ci <Plug>(coc-implementation)
+  nmap <silent> <space>cr <Plug>(coc-references)
+  nmap <silent> <space>crn <Plug>(coc-rename)
+  nmap <silent> <space>qf <Plug>(coc-fix-current)
+  nmap <silent> <space>qa <Plug>(coc-codeaction)
 
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -445,3 +449,6 @@ nnoremap <space>vl :Vista show<CR>
 [[plugins]]
 repo = 'nixprime/cpsm'
 build = 'env PY3=ON ./install.sh'
+
+[[plugins]]
+repo = 'chemzqm/denite-git'
